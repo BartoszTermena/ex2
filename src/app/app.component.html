@@ -1,0 +1,67 @@
+<div class='container'>
+
+  <mat-grid-list cols="5" rowHeight="150px">
+    <mat-grid-tile [colspan]="1">
+      <mat-form-field>
+        <mat-label>Male/Female</mat-label>
+        <mat-select [(value)]="maleFemale" name="maleFemale"
+          (selectionChange)="onCheckedState($event)">
+
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+          <mat-option value="all">All</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
+      <mat-form-field>
+        <mat-label>Survived/Not Survived</mat-label>
+        <mat-select [(value)]="survivedNot" name="survivedNot"
+          (selectionChange)="onCheckedSurvived($event)">
+
+          <mat-option value="1">Survived</mat-option>
+          <mat-option value="0">Not Survived</mat-option>
+          <mat-option value="all">All</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
+      <mat-form-field>
+        <mat-label>Select option</mat-label>
+        <mat-select [(value)]="selected"
+          (selectionChange)="selectionChange($event)">
+          <mat-option value="Name">Name</mat-option>
+          <mat-option value="Age">Age</mat-option>
+          <mat-option value="Fare">Fare</mat-option>
+          <mat-option value="Pclass">Pclass</mat-option>
+          <mat-option value="Siblings/Spouses Aboard">Siblings/Spouses Aboard</mat-option>
+          <mat-option value="Parents/Children Aboard">Parents/Children Aboard</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+
+      <mat-form-field>
+
+
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          class="form-control"
+          [placeholder]="placeholder" id="search"
+          matInput
+          /> </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div style="display: block">
+    <canvas chart
+      [chartType]="chartType"
+      [datasets]="chartDatasets"
+      [labels]="chartLabels"
+      [colors]="chartColors"
+      [options]="chartOptions"
+      [legend]="true">
+    </canvas>
+  </div>
+</div>
